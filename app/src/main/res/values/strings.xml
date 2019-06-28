@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RaspFinder</string>
+
+    <string name="search_button">Find the RaspberryPi</string>
+    <string name="tap_to_search_text">Click on the button for start searching</string>
+    <string name="search_in_progress">Searching</string>
+    <string name="RaspberryIPInfo">Raspberry Pi address: </string>
+    <string name="not_found">Not Found</string>
+
+</resources>
