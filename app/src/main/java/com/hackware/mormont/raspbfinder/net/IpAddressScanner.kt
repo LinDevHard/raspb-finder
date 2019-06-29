@@ -24,6 +24,7 @@ class IpAddressScanner {
     }
     private lateinit var subnet: String
     private val deviceInfo: ArrayList<Device> = ArrayList<Device>()
+
     suspend fun startPingService(wm: WifiManager): ArrayList<Device> {
         subnet = wm.dhcpInfo.gateway.getSubnetAddress()
         withContext(Dispatchers.IO){
@@ -37,7 +38,7 @@ class IpAddressScanner {
         return deviceInfo
     }
 
-    private suspend fun scanRangeIpAddress(a: Int, b:Int) : ArrayList<Device>{
+    private fun scanRangeIpAddress(a: Int, b:Int) : ArrayList<Device>{
         for (i in a..b) {
             val host = "$subnet.$i"
             if (InetAddress.getByName(host).isReachable(TIMEOUT)){
