@@ -12,13 +12,13 @@ import java.io.FileReader
 import java.io.IOException
 import java.net.InetAddress
 
-
+@Deprecated("This class is deprecated")
 class NetService: AsyncTask<Context, String, ArrayList<Device>>() {
     override fun doInBackground(vararg params: Context): ArrayList<Device>? {
         return startPingService(params[0])
     }
 
-
+    @Deprecated(" Not recommended to use method. ")
     private fun startPingService(cont: Context) : ArrayList<Device> {
         val context = cont.applicationContext
         val deviceInfoList = ArrayList<Device>()
