@@ -1,6 +1,6 @@
 package com.hackware.mormont.raspbfinder.utils
 
-fun Int.getSubnetAdress() :String{
+fun Int.getSubnetAddress() :String{
     return String.format(
         "%d.%d.%d",
         this and 0xff,
