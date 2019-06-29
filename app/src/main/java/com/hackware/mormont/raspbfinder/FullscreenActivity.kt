@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.hackware.mormont.raspbfinder.databinding.ActivityFullscreenBinding
+import com.hackware.mormont.raspbfinder.net.NetManager
 import kotlinx.android.synthetic.main.activity_fullscreen.*
 
 
@@ -19,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_fullscreen.*
  */
 class FullscreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFullscreenBinding
-    private val viewModel: MainViewModel = MainViewModel()
+    private lateinit var viewModel: MainViewModel
     private val mHideHandler = Handler()
 
 
@@ -37,10 +39,14 @@ class FullscreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_fullscreen)
-        binding.viewmodel = viewModel
+        viewModel =  ViewModelProviders.of(this, ViewModelFactory(NetManager(applicationContext))).get(MainViewModel::class.java)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
         viewModel.errorMessage.observe(this, Observer {
             errorMessage -> if (errorMessage != null) showError(errorMessage)
         })
+
         mHideHandler.post(mHidePart2Runnable)
         binding.executePendingBindings()
     }
@@ -65,7 +71,7 @@ class FullscreenActivity : AppCompatActivity() {
             for (it in deviceList) {
                 if (it.mac.matches("b8:27:eb:..:..:..".toRegex())) {
                     rasp_ip.visibility = View.VISIBLE
-                    rasp_text.setText(R.string.RaspberryIPInfo)
+                    rasp_text.setText(R.string.RaspberryIpInfo)
                     rasp_ip.text = it.host
 
                     isMatch = true
