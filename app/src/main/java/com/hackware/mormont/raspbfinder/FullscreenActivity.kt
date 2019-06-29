@@ -1,6 +1,5 @@
 package com.hackware.mormont.raspbfinder
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
@@ -8,6 +7,11 @@ import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.hackware.mormont.raspbfinder.databinding.ActivityFullscreenBinding
+import com.hackware.mormont.raspbfinder.net.NetManager
 import kotlinx.android.synthetic.main.activity_fullscreen.*
 
 
@@ -16,14 +20,13 @@ import kotlinx.android.synthetic.main.activity_fullscreen.*
  * status bar and navigation/system bar) with user interaction.
  */
 class FullscreenActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityFullscreenBinding
+    private lateinit var viewModel: MainViewModel
     private val mHideHandler = Handler()
-    private val mHidePart2Runnable = Runnable {
-        // Delayed removal of status and navigation bar
 
-        // Note that some of these constants are new as of API 16 (Jelly Bean)
-        // and API 19 (KitKat). It is safe to use them, as they are inlined
-        // at compile-time and do nothing on earlier devices.
-        //
+
+    private val mHidePart2Runnable = Runnable {
+        supportActionBar?.hide()
         rasp_ip.systemUiVisibility =
             View.SYSTEM_UI_FLAG_LOW_PROFILE or
                     View.SYSTEM_UI_FLAG_FULLSCREEN or
@@ -33,12 +36,19 @@ class FullscreenActivity : AppCompatActivity() {
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fullscreen)
-        supportActionBar?.hide()
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_fullscreen)
+        viewModel =  ViewModelProviders.of(this, ViewModelFactory(NetManager(applicationContext))).get(MainViewModel::class.java)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+
+        viewModel.errorMessage.observe(this, Observer {
+            errorMessage -> if (errorMessage != null) showError(errorMessage)
+        })
+
         mHideHandler.post(mHidePart2Runnable)
+        binding.executePendingBindings()
     }
 
     override fun onResume() {
@@ -46,7 +56,6 @@ class FullscreenActivity : AppCompatActivity() {
         mHideHandler.post(mHidePart2Runnable)
     }
 
-    @SuppressLint("SetTextI18n")
     fun getRaspAddress(v: View){
         val cm = application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val mWifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
@@ -62,7 +71,7 @@ class FullscreenActivity : AppCompatActivity() {
             for (it in deviceList) {
                 if (it.mac.matches("b8:27:eb:..:..:..".toRegex())) {
                     rasp_ip.visibility = View.VISIBLE
-                    rasp_text.setText(R.string.RaspberryIPInfo)
+                    rasp_text.setText(R.string.RaspberryIpInfo)
                     rasp_ip.text = it.host
 
                     isMatch = true
@@ -75,6 +84,10 @@ class FullscreenActivity : AppCompatActivity() {
             }
         } else {
             Toast.makeText(this,"error", Toast.LENGTH_LONG).show()
+            }
         }
-        }
+
+    private fun showError(error: Int){
+        Toast.makeText(this, error, Toast.LENGTH_LONG).show()
+    }
 }
