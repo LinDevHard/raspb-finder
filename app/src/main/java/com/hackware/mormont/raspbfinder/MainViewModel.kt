@@ -29,7 +29,7 @@ class MainViewModel(private var netManager: NetManager) : ViewModel() {
 
     init {
         mInfoMessage.value = R.string.tap_to_search_text
-        mRaspberryIpAddress.value = "pid"
+        mRaspberryIpAddress.value = ""
     }
 
     fun onClickSearch(){
@@ -48,7 +48,7 @@ class MainViewModel(private var netManager: NetManager) : ViewModel() {
     private fun searchRaspberryPi(devices: ArrayList<Device>){
         for (it in devices) {
             if (it.mac.matches(MAC_RE.toRegex())) {
-                    mInfoMessage.value = R.string.RaspberryIpInfo
+                    mInfoMessage.value = R.string.raspberry_ip
                     mRaspberryIpAddress.value = it.host
                     break
             }else{
