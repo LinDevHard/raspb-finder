@@ -14,6 +14,7 @@ import kotlinx.coroutines.withContext
 class MainViewModel(private var netManager: NetManager) : ViewModel() {
     companion object Constant {
         const val MAC_RE = "b8:27:eb:..:..:.."
+        //TODO: add an ability to change the pattern, in case device's MAC was changed/spoofed
     }
 
     private val mRaspberryIpAddress: MutableLiveData<String> = MutableLiveData()
@@ -51,7 +52,7 @@ class MainViewModel(private var netManager: NetManager) : ViewModel() {
         for (it in devices) {
             if (it.mac.matches(MAC_RE.toRegex())) {
                 mInfoMessage.value = R.string.raspberry_ip
-                mRaspberryIpAddress.value = it.host
+                mRaspberryIpAddress.value = it.ip
                 break
             } else {
                 mInfoMessage.value = R.string.not_found

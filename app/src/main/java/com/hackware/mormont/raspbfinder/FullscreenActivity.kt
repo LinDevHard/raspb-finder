@@ -73,7 +73,7 @@ class FullscreenActivity : AppCompatActivity() {
                 if (it.mac.matches("b8:27:eb:..:..:..".toRegex())) {
                     rasp_ip.visibility = View.VISIBLE
                     rasp_text.setText(R.string.raspberry_ip)
-                    rasp_ip.text = it.host
+                    rasp_ip.text = it.ip
 
                     isMatch = true
                     break
