@@ -13,44 +13,44 @@ import java.io.IOException
 import java.net.InetAddress
 
 @Deprecated("This class is deprecated")
-class NetService: AsyncTask<Context, String, ArrayList<Device>>() {
+class NetService : AsyncTask<Context, String, ArrayList<Device>>() {
     override fun doInBackground(vararg params: Context): ArrayList<Device>? {
         return startPingService(params[0])
     }
 
     @Deprecated(" Not recommended to use method. ")
-    private fun startPingService(cont: Context) : ArrayList<Device> {
+    private fun startPingService(cont: Context): ArrayList<Device> {
         val context = cont.applicationContext
         val deviceInfoList = ArrayList<Device>()
-            val mWifiManager = context.getSystemService(WIFI_SERVICE) as WifiManager
-            val subnet: String = getSubnetAddress(mWifiManager.dhcpInfo.gateway)
+        val mWifiManager = context.getSystemService(WIFI_SERVICE) as WifiManager
+        val subnet: String = getSubnetAddress(mWifiManager.dhcpInfo.gateway)
 
-            for (i in 1..254) {
-                val host = "$subnet.$i"
-                val timeout = 20
-                if (InetAddress.getByName(host).isReachable(timeout)) {
-                    val strMacAddress = getMacAddressFromIP(host)
-                    Log.i(
-                        "DeviceDiscovery",
-                        "Reachable Host: $host and Mac : $strMacAddress is reachable!"
-                    )
+        for (i in 1..254) {
+            val host = "$subnet.$i"
+            val timeout = 20
+            if (InetAddress.getByName(host).isReachable(timeout)) {
+                val strMacAddress = getMacAddressFromIP(host)
+                Log.i(
+                    "DeviceDiscovery",
+                    "Reachable Host: $host and Mac : $strMacAddress is reachable!"
+                )
 
-                    val localDeviceInfo = Device(host, strMacAddress)
-                    deviceInfoList.add(localDeviceInfo)
-                } else {
-                    Log.e("DeviceDiscovery", "❌ Not Reachable Host: $host")
-                }
-
+                val localDeviceInfo = Device(host, strMacAddress)
+                deviceInfoList.add(localDeviceInfo)
+            } else {
+                Log.e("DeviceDiscovery", "❌ Not Reachable Host: $host")
             }
+
+        }
         return deviceInfoList
     }
 
-    private fun getSubnetAddress(address: Int): String =  String.format(
-            "%d.%d.%d",
-            address and 0xff,
-            address shr 8 and 0xff,
-            address shr 16 and 0xff
-        )
+    private fun getSubnetAddress(address: Int): String = String.format(
+        "%d.%d.%d",
+        address and 0xff,
+        address shr 8 and 0xff,
+        address shr 16 and 0xff
+    )
 
     private fun getMacAddressFromIP(ipFinding: String): String {
 

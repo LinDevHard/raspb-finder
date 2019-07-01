@@ -3,8 +3,8 @@
     <string name="search_button">Find the RaspberryPi</string>
     <string name="tap_to_search_text">Click on the button for start searching</string>
     <string name="search_in_progress">Searching</string>
-    <string name="RaspberryIpInfo">RaspberryPi address: </string>
+    <string name="RaspberryIpInfo">RaspberryPi address:</string>
     <string name="not_found">Not Found</string>
     <string name="network_not_available">Network not available!</string>
-    <string name="empty_string"> </string>
+    <string name="empty_string"></string>
 </resources>
