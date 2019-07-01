@@ -12,10 +12,12 @@ import java.io.FileReader
 import java.io.IOException
 import java.net.InetAddress
 
+
 class NetService : AsyncTask<Context, String, ArrayList<Device>>() {
     override fun doInBackground(vararg params: Context): ArrayList<Device>? {
         return startPingService(params[0])
     }
+
 
     private fun startPingService(cont: Context): ArrayList<Device> {
         val context = cont.applicationContext

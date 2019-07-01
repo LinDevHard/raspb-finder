@@ -27,6 +27,7 @@ class IpAddressScanner {
     private val deviceInfo: ArrayList<Device> = ArrayList<Device>()
 
     suspend fun startPingService(wm: WifiManager): ArrayList<Device> {
+        Log.d("INFo", wm.dhcpInfo.toString())
         subnet = wm.dhcpInfo.gateway.getSubnetAddress()
         withContext(Dispatchers.IO) {
             for (i in 1..255 step 10) {

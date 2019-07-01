@@ -2,7 +2,9 @@
     <string name="app_name">RaspFinder</string>
     <string name="tap_to_search_text">Click the button above to start a search</string>
     <string name="search_in_progress">Searching</string>
+
     <string name="raspberry_ip">RaspberryPi address: </string>
     <string name="not_found">Not found</string>
     <string name="network_not_available">Network not available!</string>
+
 </resources>
