@@ -12,14 +12,15 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainViewModel(private var netManager: NetManager) : ViewModel() {
-    companion object Constant{
+    companion object Constant {
         const val MAC_RE = "b8:27:eb:..:..:.."
     }
+
     private val mRaspberryIpAddress: MutableLiveData<String> = MutableLiveData()
     val raspberryIpAddress: LiveData<String>
         get() = mRaspberryIpAddress
 
-    private val mInfoMessage:MutableLiveData<Int> = MutableLiveData()
+    private val mInfoMessage: MutableLiveData<Int> = MutableLiveData()
     val infoMessage: LiveData<Int>
         get() = mInfoMessage
 
@@ -32,26 +33,27 @@ class MainViewModel(private var netManager: NetManager) : ViewModel() {
         mRaspberryIpAddress.value = "pid"
     }
 
-    fun onClickSearch(){
-        if (netManager.isNetworkConnected()){
+    fun onClickSearch() {
+        if (netManager.isNetworkConnected()) {
             mInfoMessage.value = R.string.search_in_progress
             viewModelScope.launch {
                 val deviceList = withContext(Dispatchers.IO) {
-                    IpAddressScanner().startPingService(netManager.getWifiManager()) }
-                    searchRaspberryPi(deviceList)
+                    IpAddressScanner().startPingService(netManager.getWifiManager())
+                }
+                searchRaspberryPi(deviceList)
             }
-        }else{
+        } else {
             mErrorMessage.value = R.string.network_not_available
         }
     }
 
-    private fun searchRaspberryPi(devices: ArrayList<Device>){
+    private fun searchRaspberryPi(devices: ArrayList<Device>) {
         for (it in devices) {
             if (it.mac.matches(MAC_RE.toRegex())) {
-                    mInfoMessage.value = R.string.RaspberryIpInfo
-                    mRaspberryIpAddress.value = it.host
-                    break
-            }else{
+                mInfoMessage.value = R.string.RaspberryIpInfo
+                mRaspberryIpAddress.value = it.host
+                break
+            } else {
                 mInfoMessage.value = R.string.not_found
             }
         }

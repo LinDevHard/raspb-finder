@@ -39,12 +39,13 @@ class FullscreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_fullscreen)
-        viewModel =  ViewModelProviders.of(this, ViewModelFactory(NetManager(applicationContext))).get(MainViewModel::class.java)
+        viewModel =
+            ViewModelProviders.of(this, ViewModelFactory(NetManager(applicationContext))).get(MainViewModel::class.java)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        viewModel.errorMessage.observe(this, Observer {
-            errorMessage -> if (errorMessage != null) showError(errorMessage)
+        viewModel.errorMessage.observe(this, Observer { errorMessage ->
+            if (errorMessage != null) showError(errorMessage)
         })
 
         mHideHandler.post(mHidePart2Runnable)
@@ -56,13 +57,13 @@ class FullscreenActivity : AppCompatActivity() {
         mHideHandler.post(mHidePart2Runnable)
     }
 
-    fun getRaspAddress(v: View){
+    fun getRaspAddress(v: View) {
         val cm = application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val mWifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
 
         if (mWifi.isConnected) {
             rasp_text.setText(R.string.search_in_progress)
-            val deviceList = with(NetService()){
+            val deviceList = with(NetService()) {
                 execute(applicationContext)
                 get()
             }
@@ -78,16 +79,16 @@ class FullscreenActivity : AppCompatActivity() {
                     break
                 }
             }
-            if (!isMatch){
+            if (!isMatch) {
                 rasp_ip.visibility = View.VISIBLE
                 rasp_ip.setText(R.string.not_found)
             }
         } else {
-            Toast.makeText(this,"error", Toast.LENGTH_LONG).show()
-            }
+            Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
         }
+    }
 
-    private fun showError(error: Int){
+    private fun showError(error: Int) {
         Toast.makeText(this, error, Toast.LENGTH_LONG).show()
     }
 }
