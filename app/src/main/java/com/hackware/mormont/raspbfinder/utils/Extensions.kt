@@ -1,5 +1,7 @@
 package com.hackware.mormont.raspbfinder.utils
 
+import android.content.ClipboardManager
+import android.content.Context
 import android.view.View
 
 fun Int.getSubnetAddress(): String {
@@ -19,3 +21,6 @@ fun View.enableFullscreenMode() {
             or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
             or View.SYSTEM_UI_FLAG_FULLSCREEN)
 }
+
+fun Context.getClipboardManager(): ClipboardManager =
+    this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager

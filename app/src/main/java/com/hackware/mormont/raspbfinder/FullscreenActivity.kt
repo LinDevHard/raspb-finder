@@ -24,8 +24,8 @@ class FullscreenActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        viewModel.errorMessage.observe(this, Observer { errorMessage ->
-            if (errorMessage != null) showError(errorMessage)
+        viewModel.toastMessage.observe(this, Observer { toastMessage ->
+            if (toastMessage != null) showToast(toastMessage)
         })
 
         binding.executePendingBindings()
@@ -36,7 +36,7 @@ class FullscreenActivity : AppCompatActivity() {
         window.decorView.enableFullscreenMode()
     }
 
-    private fun showError(error: Int) {
-        Toast.makeText(this, error, Toast.LENGTH_LONG).show()
+    private fun showToast(text: Int) {
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     }
 }

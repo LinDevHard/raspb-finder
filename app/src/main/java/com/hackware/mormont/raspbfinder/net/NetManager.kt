@@ -8,6 +8,8 @@ import android.net.wifi.WifiManager
 class NetManager(applicationContext: Context) {
     private var context: Context = applicationContext
 
+    fun getContext() = context
+
     fun getWifiManager(): WifiManager =
         context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
