@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
     <data>
-
         <variable
             name="viewModel"
             type="com.hackware.mormont.raspbfinder.MainViewModel" />
@@ -18,69 +16,61 @@
         tools:context=".FullscreenActivity">
 
         <Button
-            android:id="@+id/find_rasp"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/rnd_button_background"
-            android:contentDescription="@android:string/search_go"
-            android:onClick="@{()-> viewModel.onClickSearch()}"
-            android:text="@android:string/search_go"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.246" />
+                android:id="@+id/find_rasp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:background="@drawable/rnd_button_background"
+                android:contentDescription="@android:string/search_go"
+                android:onClick="@{()-> viewModel.onClickSearch()}"
+                android:text="@android:string/search_go"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.246"/>
 
         <TextView
-            android:id="@+id/rasp_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:padding="16dp"
-            android:text="@{viewModel.infoMessage}"
-            android:textAlignment="center"
-            android:textColor="@color/primary_text_color"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/find_rasp"
-            app:layout_constraintVertical_bias="0.229" />
+                android:id="@+id/rasp_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:text="@{viewModel.infoMessage}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/find_rasp"
+                app:layout_constraintVertical_bias="0.229"
+                style="@style/CommonTextView"
+        />
 
         <TextView
-            android:id="@+id/rasp_ip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:padding="16dp"
-            android:text="@{viewModel.raspberryIpAddress}"
-            android:textAlignment="center"
-            android:textColor="@color/primary_text_color"
-            android:textSize="32sp"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rasp_text"
-            app:layout_constraintVertical_bias="0.2" />
-
+                android:id="@+id/rasp_ip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:text="@{viewModel.raspberryIpAddress}"
+                android:textSize="@dimen/font_larger"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rasp_text"
+                app:layout_constraintVertical_bias="0.2"
+                style="@style/CommonTextView"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

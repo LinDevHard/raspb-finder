@@ -15,9 +15,10 @@ import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 
-class IpAddressScanner {
+class NetworkDiscovery {
     companion object {
-        private const val TIMEOUT: Int = 50
+        private const val TAG: String = "NetDiscovery"
+        private const val TIMEOUT: Int = 100
         private const val BUF: Int = 8 * 1024
         private const val NON_MAC: String = "00:00:00:00"
         private const val MAC_RE = "^%s\\s+0x1\\s+0x2\\s+([:0-9a-fA-F]+)\\s+\\*\\s+\\w+$"
@@ -27,15 +28,15 @@ class IpAddressScanner {
     private val deviceInfo: ArrayList<Device> = ArrayList<Device>()
 
     suspend fun startPingService(wm: WifiManager): ArrayList<Device> {
-        Log.d("INFo", wm.dhcpInfo.toString())
+        Log.d(TAG, wm.dhcpInfo.toString())
         subnet = wm.dhcpInfo.gateway.getSubnetAddress()
+
         withContext(Dispatchers.IO) {
             for (i in 1..255 step 10) {
                 if (i > 10) {
                     async { scanRangeIpAddress(i - 10, i) }
                 }
             }
-
         }
         return deviceInfo
     }
@@ -45,14 +46,11 @@ class IpAddressScanner {
             val host = "$subnet.$i"
             if (InetAddress.getByName(host).isReachable(TIMEOUT)) {
                 val strMacAddress = getMacAddressFromIP(host)
-                Log.i(
-                    "DeviceDiscovery",
-                    "Reachable Host: $host and Mac : $strMacAddress is reachable!"
-                )
+                Log.i(TAG, "Reachable Host: $host and Mac : $strMacAddress is reachable!")
                 val localDeviceInfo = Device(host, strMacAddress)
                 deviceInfo.add(localDeviceInfo)
             } else {
-                Log.e("DeviceDiscovery", "❌ Not Reachable Host: $host")
+                Log.e(TAG, "❌ Not Reachable Host: $host")
             }
         }
         return deviceInfo
