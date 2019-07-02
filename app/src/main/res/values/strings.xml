@@ -5,6 +5,7 @@
     <string name="info_message_search">Click the button above to start a search</string>
     <string name="info_message_search_in_progress">Searching</string>
     <string name="info_message_raspberry_ip">RaspberryPi address:</string>
+    <string name="info_message_clipboard">Copy to clipboard</string>
 
     <!-- error message -->
     <string name="error_message_not_found">Not found</string>
