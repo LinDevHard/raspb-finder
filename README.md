@@ -5,7 +5,9 @@ This app will help!
 
 RaspFinder is a lightweight application designed to help you to find your Raspberry Pi in the current (Wi-Fi) network.
 
-### Things to be done
-- Massive code clean-up
-- Ability to change MAC pattern somewhere in settings
-- Find a good design and style?)
+## Few step to first release
+Very little is left and will be ready.
+
+- create an application icon
+- change button design
+- add smoothness to the application
