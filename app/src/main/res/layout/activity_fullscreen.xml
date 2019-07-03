@@ -5,8 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="viewModel"
-            type="com.hackware.mormont.raspbfinder.MainViewModel" />
+                name="viewModel"
+                type="com.hackware.mormont.raspbfinder.MainViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
