@@ -10,4 +10,4 @@ Very little is left and will be ready.
 
 - create an application icon [Done]
 - change button design
-- add smoothness to the application
+- add smoothness to the application [Done]
