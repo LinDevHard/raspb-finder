@@ -26,7 +26,7 @@
                 android:background="@drawable/rnd_button_background"
                 android:contentDescription="@android:string/search_go"
                 android:onClick="@{()-> viewModel.onClickSearch()}"
-                android:text="@android:string/search_go"
+                android:text="@string/button_text_find"
                 android:elevation="20dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="@android:color/white"

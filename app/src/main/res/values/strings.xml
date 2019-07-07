@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">RaspFinder</string>
 
+    <!-- button text -->
+    <string name="button_text_find">Find</string>
+
     <!-- info message -->
     <string name="info_message_search">Click the button above to start a search</string>
     <string name="info_message_search_in_progress">Searching</string>

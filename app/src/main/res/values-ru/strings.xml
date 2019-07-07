@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RaspFinder</string>
+
+    <!-- button text -->
+    <string name="button_text_find">Поиск</string>
+
+    <!-- info message -->
+    <string name="info_message_search">Нажми на кнопку выше, чтобы начать поиск</string>
+    <string name="info_message_search_in_progress">Поиск</string>
+    <string name="info_message_raspberry_ip">RaspberryPi адрес:</string>
+    <string name="info_message_clipboard">Скопировано в буфер</string>
+
+    <!-- error message -->
+    <string name="error_message_not_found">Не найдено</string>
+    <string name="error_message_network_not_available">Сеть не доступна!</string>
+</resources>
