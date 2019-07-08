@@ -1,4 +1,4 @@
-package com.hackware.mormont.raspbfinder
+package com.lindevhard.android.raspfinder
 
 import android.os.Bundle
 import android.view.View
@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.hackware.mormont.raspbfinder.databinding.ActivityFullscreenBinding
-import com.hackware.mormont.raspbfinder.net.NetManager
-import com.hackware.mormont.raspbfinder.utils.enableFullscreenMode
+import com.lindevhard.android.raspfinder.databinding.ActivityFullscreenBinding
+import com.lindevhard.android.raspfinder.net.NetManager
+import com.lindevhard.android.raspfinder.utils.enableFullscreenMode
 import kotlinx.android.synthetic.main.activity_fullscreen.*
 
 class FullscreenActivity : AppCompatActivity() {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.hackware.mormont.raspbfinder">
+          xmlns:tools="http://schemas.android.com/tools" package="com.lindevhard.android.raspfinder">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -18,7 +18,7 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name="com.hackware.mormont.raspbfinder.FullscreenActivity"
+                android:name="com.lindevhard.android.raspfinder.FullscreenActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:label="@string/app_name"
                 android:theme="@style/FullscreenTheme">

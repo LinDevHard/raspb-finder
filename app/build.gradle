@@ -10,7 +10,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.hackware.mormont.raspfind"
+        applicationId 'com.lindevhard.android.raspfinder'
         dataBinding.enabled = true
         minSdkVersion 21
         targetSdkVersion 28

@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="viewModel"
-                type="com.hackware.mormont.raspbfinder.MainViewModel"/>
+                type="com.lindevhard.android.raspfinder.MainViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

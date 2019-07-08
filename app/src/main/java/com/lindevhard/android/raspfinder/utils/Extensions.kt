@@ -1,4 +1,4 @@
-package com.hackware.mormont.raspbfinder.utils
+package com.lindevhard.android.raspfinder.utils
 
 import android.content.ClipboardManager
 import android.content.Context

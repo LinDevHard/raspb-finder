@@ -1,4 +1,4 @@
-package com.hackware.mormont.raspbfinder
+package com.lindevhard.android.raspfinder
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

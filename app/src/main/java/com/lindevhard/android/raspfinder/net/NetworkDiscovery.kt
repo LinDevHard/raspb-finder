@@ -1,9 +1,9 @@
-package com.hackware.mormont.raspbfinder.net
+package com.lindevhard.android.raspfinder.net
 
 import android.net.wifi.WifiManager
 import android.util.Log
-import com.hackware.mormont.raspbfinder.model.Device
-import com.hackware.mormont.raspbfinder.utils.getSubnetAddress
+import com.lindevhard.android.raspfinder.model.Device
+import com.lindevhard.android.raspfinder.utils.getSubnetAddress
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext

@@ -1,4 +1,4 @@
-package com.hackware.mormont.raspbfinder
+package com.lindevhard.android.raspfinder
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

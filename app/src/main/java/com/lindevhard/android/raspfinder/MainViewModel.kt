@@ -1,14 +1,14 @@
-package com.hackware.mormont.raspbfinder
+package com.lindevhard.android.raspfinder
 
 import android.content.ClipData
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hackware.mormont.raspbfinder.model.Device
-import com.hackware.mormont.raspbfinder.net.NetManager
-import com.hackware.mormont.raspbfinder.net.NetworkDiscovery
-import com.hackware.mormont.raspbfinder.utils.getClipboardManager
+import com.lindevhard.android.raspfinder.model.Device
+import com.lindevhard.android.raspfinder.net.NetManager
+import com.lindevhard.android.raspfinder.net.NetworkDiscovery
+import com.lindevhard.android.raspfinder.utils.getClipboardManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

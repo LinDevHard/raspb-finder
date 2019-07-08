@@ -1,4 +1,4 @@
-package com.hackware.mormont.raspbfinder.net
+package com.lindevhard.android.raspfinder.net
 
 import android.content.Context
 import android.net.ConnectivityManager

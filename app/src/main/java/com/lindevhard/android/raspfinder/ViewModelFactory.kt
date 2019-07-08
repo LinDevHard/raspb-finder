@@ -1,8 +1,8 @@
-package com.hackware.mormont.raspbfinder
+package com.lindevhard.android.raspfinder
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.hackware.mormont.raspbfinder.net.NetManager
+import com.lindevhard.android.raspfinder.net.NetManager
 
 
 class ViewModelFactory(
