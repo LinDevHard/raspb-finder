@@ -41,6 +41,7 @@ RaspFinder helps you to find your device in the case, when
 ## Download
 
 New version of RaspFinder is now available on Google Play
+
 <a href='https://play.google.com/store/apps/details?id=com.lindevhard.android.raspfinder&hl=en&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="258" height="98"/></a>
 
 FDROID: Coming soon
@@ -50,6 +51,10 @@ FDROID: Coming soon
 If you managed to do something cool with my broken code or fixed a funny mistake of mine, feel free to shoot a pull request at me.
 
 Just one thing though, if you are planning on working on something bigger, please create an issue here before starting work and let's talk about it beforehand. If there's one thing I hate doing here, it's closing pull requests despite the time and effort put into them, just because of our different views on what should go into the codebase.
+
+## Credits
+
+[@djsmax](https://github.com/djsmax) - for contribute and useful recommendations
 
 ## License
 
