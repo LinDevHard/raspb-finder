@@ -50,7 +50,7 @@ FDROID: Coming soon
 
 If you managed to do something cool with my broken code or fixed a funny mistake of mine, feel free to shoot a pull request at me.
 
-Just one thing though, if you are planning on working on something bigger, please create an issue here before starting work and let's talk about it beforehand. If there's one thing I hate doing here, it's closing pull requests despite the time and effort put into them, just because of our different views on what should go into the codebase.
+Just one thing though, if you're planning to work on something bigger,  please create an issue here before starting work and let's talk about it beforehand. There is one thing I hate doing here - closing pull requests despite the time and effort put into them, just because of our different views on what should go into the codebase.
 
 ## Credits
 
