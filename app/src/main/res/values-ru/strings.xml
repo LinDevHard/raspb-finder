@@ -7,7 +7,7 @@
 
     <!-- info message -->
     <string name="info_message_search">Нажми на кнопку выше, чтобы начать поиск</string>
-    <string name="info_message_search_in_progress">Поиск</string>
+    <string name="info_message_search_in_progress">Идет поиск…</string>
     <string name="info_message_raspberry_ip">RaspberryPi адрес:</string>
     <string name="info_message_clipboard">Скопировано в буфер</string>
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RaspFinder</string>
+    <string name="info_message_search_in_progress">Recherche en cours…</string>
+    <string name="info_message_search">Cliquez sur le bouton ci-dessus pour lancer la recherche</string>
+    <string name="info_message_raspberry_ip">Adresse RaspberryPi:</string>
+    <string name="info_message_clipboard">Copié dans le presse-papier</string>
+    <string name="error_message_not_found">Non trouvé</string>
+    <string name="button_text_find">Recherche</string>
+    <string name="error_message_network_not_available">le réseau n\'est pas disponible!</string>
+</resources>
