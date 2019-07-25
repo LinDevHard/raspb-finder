@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.wifi.WifiManager
 import android.os.Build
+import android.util.Log
 
 class NetManager(applicationContext: Context) {
     private var context: Context = applicationContext
@@ -23,10 +24,11 @@ class NetManager(applicationContext: Context) {
         } else {
             val networkInfo = connectivityManager.activeNetwork
             if (networkInfo != null) {
+                Log.d("NM", "NOT Null")
                 val networkCapabilities = connectivityManager.getNetworkCapabilities(networkInfo)
                 networkCapabilities != null && networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
-            }
-            false
+            } else
+                false
         }
     }
 }
