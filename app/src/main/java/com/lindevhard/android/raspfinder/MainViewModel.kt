@@ -1,6 +1,5 @@
 package com.lindevhard.android.raspfinder
 
-import android.content.ClipData
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.lindevhard.android.raspfinder.model.Device
 import com.lindevhard.android.raspfinder.net.NetManager
 import com.lindevhard.android.raspfinder.net.NetworkDiscovery
-import com.lindevhard.android.raspfinder.utils.getClipboardManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -62,11 +60,4 @@ class MainViewModel(private var netManager: NetManager) : ViewModel() {
         }
     }
 
-    //Violates the viewModel concept
-    fun copyIpToClipboard() {
-        val clipboardManager = netManager.getContext().getClipboardManager()
-        val clip: ClipData = ClipData.newPlainText("IP", mRaspberryIpAddress.value)
-        clipboardManager.primaryClip = clip
-        mToastMessage.value = R.string.info_message_clipboard
-    }
 }

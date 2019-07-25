@@ -1,5 +1,6 @@
 package com.lindevhard.android.raspfinder
 
+import android.content.ClipData
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -13,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.lindevhard.android.raspfinder.databinding.ActivityFullscreenBinding
 import com.lindevhard.android.raspfinder.net.NetManager
 import com.lindevhard.android.raspfinder.utils.enableFullscreenMode
+import com.lindevhard.android.raspfinder.utils.getClipboardManager
 import kotlinx.android.synthetic.main.activity_fullscreen.*
 
 class FullscreenActivity : AppCompatActivity() {
@@ -40,7 +42,19 @@ class FullscreenActivity : AppCompatActivity() {
             showAnim(R.anim.slide_in_bottom, rasp_ip)
         })
 
+        //Coping IP in clipboard
+        rasp_ip.setOnClickListener {
+            copyIp()
+        }
+
         binding.executePendingBindings()
+    }
+
+    private fun copyIp() {
+        val clipboardManager = application.getClipboardManager()
+        val clip: ClipData = ClipData.newPlainText("IP", rasp_ip.text.toString())
+        clipboardManager.primaryClip = clip
+        showToast(R.string.info_message_clipboard)
     }
 
     private fun showAnim(@AnimRes anim: Int, target: View) {
