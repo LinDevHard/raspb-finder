@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">RaspFinder</string>
+
+    <!-- button text -->
+    <string name="button_text_find">Szukaj</string>
+
+    <!-- info message -->
+    <string name="info_message_search">Naciśnij powyższy przycisk by zacząć wyszukiwanie</string>
+    <string name="info_message_search_in_progress">Szukanie…</string>
+    <string name="info_message_raspberry_ip">Adres RaspberryPi:</string>
+    <string name="info_message_clipboard">Skopiuj do schowka</string>
+
+    <!-- error message -->
+    <string name="error_message_not_found">Nie znaleziono</string>
+    <string name="error_message_network_not_available">Sieć nie jest dostępna!</string>
+</resources>
